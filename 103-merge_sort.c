@@ -70,7 +70,10 @@ void split_array(size_t low, size_t high, int *array, int *base)
 	split_array(low, mid, array, base);
 	merge(low, mid, high, array, base);
 
-	memcpy(base + low, array + low, (high - low) * sizeof(int));
+	for (mid = low; mid < high; mid++)
+	{
+		base[mid] = array[mid];
+	}
 }
 
 /**
