@@ -49,8 +49,7 @@ void cocktail_sort_list(listint_t **list)
 
 	if (!list || !*list || !(*list)->next)
 		return;
-	do
-	{
+	do {
 		for (head = *list; head->next != NULL; head = head->next)
 		{
 			if (head->n > head->next->n)
@@ -74,6 +73,5 @@ void cocktail_sort_list(listint_t **list)
 				head = head->next;
 			}
 		}
-	}
-	while (flag == 1);
+	}while (flag == 1);
 }
