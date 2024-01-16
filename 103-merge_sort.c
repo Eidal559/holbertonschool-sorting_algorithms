@@ -67,7 +67,8 @@ void split_array(size_t low, size_t high, int *array, int *base)
 	mid = (low + high) / 2;
 
 	split_array(low, mid, array, base);
-	split_array(low, mid, array, base);
+	split_array(mid, high, array, base);
+
 	merge(low, mid, high, array, base);
 
 	memcpy(base + low, array + low, (high - low) * sizeof(int));
