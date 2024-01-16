@@ -15,10 +15,10 @@ void counting_sort(int *array, size_t size)
 
 	if (array == NULL || size <= 1)
 		return;
-	array_size = array[0];
-	for (i = 1; i < size; i++)
+	array_size = size;
+	for (i = 0; i < size; i++)
 	{
-		if (array[i] > array_size)
+		if (array[i] > (int)array_size)
 			array_size = array[i];
 	}
 
@@ -36,9 +36,8 @@ void counting_sort(int *array, size_t size)
 
 	print_array(count_array, array_size);
 
-	for (i = size - 1, i >= 0; i--)
-	{
-		array[--count_array[array[i]]] = array[i];
-	}
+	for (i = 0, j = 0; i < array_size; i++)
+		while (count_array[i]-- > 0)
+			array[j++] = i;
 	free(count_array);
 }
